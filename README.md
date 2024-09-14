@@ -27,13 +27,18 @@ Before you begin, ensure you have met the following requirements:
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/e-commerce-testing.git
-   cd e-commerce-testing
+   git clone https://github.com/podupu/droneshield_ui.git
+   cd droneshield_ui
    ```
 
 2. Install dependencies:
    ```bash
    npm install
+   ```
+
+3. Install dependencies:
+   ```bash
+   npx playwright install
    ```
 
 ## Project Structure
@@ -68,7 +73,7 @@ droneshield/
 
 * Run web tests:
     ```bash
-    yarn run pw:headless:all
+    npm run pw:headless:all
     ```
 
 ## CI/CD Architecture
@@ -76,7 +81,7 @@ droneshield/
 Complete end-to-end CI/CD is accomplished using:
 
 * [CircleCI](https://circleci.com/gh/PODHUPU/petcircle/tree/master)
-* [DockerHub](https://hub.docker.com/)
+* [Docker](https://hub.docker.com/)
 
 ### Reports
 
@@ -84,7 +89,6 @@ Complete end-to-end CI/CD is accomplished using:
 
 * View the web test report by opening `playwright report` located in the `playwright-report/` folder.
     <img src="img/report_1.png" width="600">
-    <img src="img/report_2.png" width="600">
 
 ## Contributing
 
