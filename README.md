@@ -104,7 +104,7 @@ To contribute to this project, follow these steps:
 Refer to [BUGREPORT-1.md](BUGREPORT-1.md) for guidelines on reporting bugs.
 
 ## Excerise task
-Refer to [EXCERISE-1.md](EXCERISE-1.md)
+Refer to [EXERCISE-1.md](EXERCISE-1.md)
 
 ## License
 This project is licensed under the MIT License.
