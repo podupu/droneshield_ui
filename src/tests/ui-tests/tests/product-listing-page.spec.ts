@@ -1,26 +1,23 @@
 import { test, expect } from "@playwright/test";
 import { LoginPage } from "../pages/loginPage";
+import { CONFIG } from '../../../config/config';
+import productData from '../../../data/data';
+import { ProductListingPage } from "../pages/productListingPage";
 
 test('Verify product listing page - Names, Number, and Text', async ({ page }) => {
   const loginPage = new LoginPage(page);
+  const productListingPage = new ProductListingPage(page);
+
   await loginPage.navigate();
-  await loginPage.login("standard_user", "secret_sauce");
-  const productNames = await page.locator('.inventory_item_name').allTextContents();
+  await loginPage.login(CONFIG.credentials.username, CONFIG.credentials.password);
+  const productNames: string[] = await productListingPage.getProductNames();
   const productCount = productNames.length;
   console.log('Product Count:', productCount);
-  expect(productCount).toBe(6);
-  const expectedNames = [
-    "Sauce Labs Backpack",
-    "Sauce Labs Bike Light",
-    "Sauce Labs Bolt T-Shirt",
-    "Sauce Labs Fleece Jacket",
-    "Sauce Labs Onesie",
-    "Test.allTheThings() T-Shirt (Red)"
-  ];
-  expectedNames.forEach((name, index) => {
+  expect(productCount).toBe(productData.expectedProductCount);
+  productData.expectedProductNames.forEach((name: string, index: number) => {
     expect(productNames[index]).toBe(name);
   });
-  const productPrices = await page.locator('.inventory_item_price').allTextContents();
+  const productPrices: string[] = await productListingPage.getProductPrices();
   productPrices.forEach(price => {
     expect(price).toMatch(/^\$\d+\.\d{2}$/);
   });

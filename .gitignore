@@ -1,7 +1,7 @@
 .vscode
 yarn.lock
 package-lock.json
-test-results
+test-results/
 performanceTests
 
 # Node modules
